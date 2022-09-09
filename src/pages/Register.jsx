@@ -13,7 +13,7 @@ export default function Register() {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             console.log(userCredential)
-            const user = userCredential.user
+            const user = userCredential.user;
         })
         .catch ((error) => {
             const errorCode = error.code;
