@@ -1,7 +1,9 @@
 .register {
     height: 100vh;
     background-image: url("../assets/netflixteaser.png");
-}
+    background-size: cover;
+}   
+
 
 .register-form {
     display: flex;
