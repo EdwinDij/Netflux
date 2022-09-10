@@ -2,7 +2,7 @@ import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './pages/Register'
 import Login from './pages/Login'
-import Loader from './components/Loader';
+import Loader from './pages/Loader';
 import MainPage from './pages/MainPage';
 function App() {
   return (
