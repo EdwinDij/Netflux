@@ -7,11 +7,15 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 export default function Register() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     const register = async (e) => {
         e.preventDefault()
        try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+        navigate('/loader')
+        const user = userCredential.user.email
+        localStorage.setItem('user', user)
         console.log(userCredential)
        }
        catch(error) {
