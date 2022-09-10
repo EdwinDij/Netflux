@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { auth } from '../Firebase.config'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
@@ -8,17 +8,15 @@ export default function Register() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-
-    const register = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log(userCredential)
-            const user = userCredential.user;
-        })
-        .catch ((error) => {
-            const errorCode = error.code;
-            const errorMessage =  error.message;
-        })
+    const register = async (e) => {
+        e.preventDefault()
+       try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+        console.log(userCredential)
+       }
+       catch(error) {
+        console.log(error)
+       }
     }
 
     return (
@@ -28,7 +26,7 @@ export default function Register() {
             </div>
             <div className="register-container">
                 <div className="register-form">
-                    <form action='post' className='form'>
+                    <form  className='form'>
                         <h2 className='header-form'> S'inscrire</h2>
                         <div className="input">
                             <label>Adresse Mail</label>

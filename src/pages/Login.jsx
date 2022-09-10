@@ -8,15 +8,15 @@ import { Link, useNavigate } from "react-router-dom"
 export default function Login() {
     const [email, setEmail] = useState ('')
     const [password, setPassword] = useState('')
-    const navigate =useNavigate()
+    const navigate = useNavigate()
+
     const login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             console.log(userCredential)
             const user = userCredential.user;
-            //localStorage.setItem('user', user)
-            navigate('/loader')
-
+            localStorage.setItem('user', user)
+            navigate("/loader")
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -31,7 +31,7 @@ export default function Login() {
     </div>
     <div className="register-container">
         <div className="register-form">
-            <form action='post' className='form'>
+            <form action='' className='form'>
                 <h2 className='header-form'> Connexion</h2>
                 <div className="input">
                     <label>Adresse Mail</label>
@@ -44,7 +44,7 @@ export default function Login() {
                 <div className="connection-page">
                     <Link to="/" className='connect-link'>Vous avez déjà un compte ?</Link>
                 </div>
-                <button type='submit' className='register-btn' onClick={login}> Se connecter</button>
+                <button type='submit' className='register-btn' onSubmit={login}> Se connecter</button>
             </form>
         </div>
     </div>
