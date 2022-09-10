@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function Header() {
-    const [user, setUser] = useState(localStorage.getItem('user'))
+    const [user] = useState(localStorage.getItem('user'))
 
   return (
     <div className='header'>
