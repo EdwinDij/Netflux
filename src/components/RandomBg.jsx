@@ -36,7 +36,7 @@ export default function RandomBg() {
 
     return (
         <div className='random-bg' style={{
-            backgroundImage: `url(${url})`
+            backgroundImage: `url(${url})`, 
         }}
         >
             <div className="text-section">

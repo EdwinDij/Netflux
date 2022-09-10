@@ -42,7 +42,7 @@ input {
 //component randombackground
 
 .random-bg {
-    height: 92vh;
+    height: 95vh;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -51,5 +51,20 @@ input {
     justify-content: center;
 }
 .random-title, .description-text {
-    color: inherit;
+    color: white;
+}
+
+.description-text {
+    width: 32rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+            line-clamp: 4; 
+    -webkit-box-orient: vertical;
+}
+
+.text-section {
+    margin-left: 2rem;
+    background-color: rgba(3, 3, 3, 0.562);
 }
