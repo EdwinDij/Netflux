@@ -16,7 +16,6 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem 0.4rem;
-    background-color: rgba(3, 3, 3, 0.493);
 }
 
 .user {
@@ -36,19 +35,26 @@ input {
 }
 
 .search-zone input{
+    width: 10rem;
+    background-color: rgba(255, 255, 255, 0.212);
+    color: inherit;
     margin-bottom: 0
+}
+.search-zone input:focus{
+    background-color: white;
 }
 
 //component randombackground
 
 .random-bg {
-    height: 95vh;
+    height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-top: -2.6%;
 }
 .random-title, .description-text {
     color: white;
@@ -59,7 +65,7 @@ input {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-line-clamp: 4;
             line-clamp: 4; 
     -webkit-box-orient: vertical;
 }
@@ -67,4 +73,6 @@ input {
 .text-section {
     margin-left: 2rem;
     background-color: rgba(3, 3, 3, 0.562);
+    padding: 1rem;
+    border-radius: 0.3rem;
 }
