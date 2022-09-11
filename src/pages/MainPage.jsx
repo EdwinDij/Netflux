@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
-import CardMovie from '../components/CardMovie'
+import CardPopular from '../components/CardPopular'
 import RandomBg from '../components/RandomBg'
 export default function MainPage() {
 
@@ -8,7 +8,7 @@ export default function MainPage() {
     <div>
       <Header />
       <RandomBg />
-      <CardMovie/>
+      <CardPopular/>
     </div>
   )
 }

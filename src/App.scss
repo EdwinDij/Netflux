@@ -1,5 +1,6 @@
 @import './styles/login.scss';
 @import './styles/loader.scss';
+
 h1 {
     margin: 0;
     color: red;
@@ -9,6 +10,7 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
 // component header //
 
 .header {
@@ -34,13 +36,23 @@ input {
     width: 18rem;
 }
 
-.search-zone input{
+.search-zone input {
     width: 10rem;
     background-color: rgba(255, 255, 255, 0.212);
     color: inherit;
     margin-bottom: 0
 }
-.search-zone input:focus{
+
+@media screen and (max-width: 768px) {
+
+    .search-zone input,
+    .search-btn {
+        display: none;
+    }
+
+}
+
+.search-zone input:focus {
     background-color: white;
 }
 
@@ -50,33 +62,56 @@ input {
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     margin-top: -2.6%;
 }
-.random-title, .description-text {
+@media screen and (max-width:1440px) {
+    .random-bg{
+        margin-top: -4.9%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .random-bg {
+        margin-top: -7.6%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .random-bg {
+        margin-top: -15.5%;
+    }
+}
+
+.random-title,
+.description-text {
     color: white;
 }
 
 .description-text {
-    width: 32rem;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4;
-            line-clamp: 4; 
+    line-clamp: 4;
     -webkit-box-orient: vertical;
 }
 
 .text-section {
+    width: 30%;
     margin-left: 2rem;
     background-color: rgba(3, 3, 3, 0.562);
     padding: 1rem;
     border-radius: 0.3rem;
 }
-
+@media screen and (max-width : 1024px) {
+    .text-section{
+        width: 80%;
+        margin-left: 1rem;
+    }
+}
 //card movies
 
 .card {
@@ -87,11 +122,17 @@ input {
     scroll-behavior: smooth;
 }
 
-.scroll {
-    scroll-snap-type:inline mandatory;
+@media screen and (max-width: 768px) {
+    .card {
+        overflow-x: auto;
+    }
 }
 
-.scroll > * {
+.scroll {
+    scroll-snap-type: inline mandatory;
+}
+
+.scroll>* {
     scroll-snap-align: start;
 }
 
@@ -103,6 +144,11 @@ input {
     margin: 0;
     padding: 2rem 0 2rem 1rem;
 }
+
+.popular-card {
+    height: 14rem;
+}
+
 .popular-title {
     text-align: center;
 }
@@ -119,4 +165,8 @@ input {
 .arrow:hover {
     opacity: 1;
     cursor: pointer;
+}
+
+h3 {
+    margin: 0;
 }

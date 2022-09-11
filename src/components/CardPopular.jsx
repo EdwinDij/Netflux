@@ -28,8 +28,6 @@ export default function CardMovie() {
         slider.scrollLeft = slider.scrollLeft + 720
     }
 
-
-
     return (
         <div className='popular'>
             <h2 className='card-title'>Les films populaires</h2>
