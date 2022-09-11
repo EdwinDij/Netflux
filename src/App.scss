@@ -118,6 +118,7 @@ input {
     display: flex;
     gap: 1rem;
     overflow-x: hidden;
+    overflow-y: hidden;
     overscroll-behavior-inline: contain;
     scroll-behavior: smooth;
 }
@@ -130,6 +131,7 @@ input {
 
 .scroll {
     scroll-snap-type: inline mandatory;
+    padding-top: 1rem;
 }
 
 .scroll>* {
@@ -147,6 +149,13 @@ input {
 
 .popular-card {
     height: 14rem;
+    border-radius: 0.5rem;
+}
+
+.popular-card:hover {
+    transform: scale(1.02);
+    box-shadow: 1px 1px 10px rgb(145, 55, 55);
+    cursor: pointer;
 }
 
 .popular-title {
@@ -169,4 +178,10 @@ input {
 
 h3 {
     margin: 0;
+}
+#overview-card {
+display: none;
+}
+.card-img {
+    border-radius: 0.5rem 0.5rem 0 0;
 }

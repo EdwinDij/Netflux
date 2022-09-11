@@ -1,9 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
+import Modals from './Modals'
 
 export default function CardMovie() {
     const [data, setData] = useState([])
+    const [cardData, setCardData] = useState({})
+    const [isOpen, setIsOpen] = useState(false)
     const url = "http://image.tmdb.org/t/p/w342"
 
     useEffect(() => {
@@ -28,6 +31,21 @@ export default function CardMovie() {
         slider.scrollLeft = slider.scrollLeft + 720
     }
 
+    const getCardInfo = () => {
+        var cardImg = document.getElementById('img').currentSrc
+        var cardName = document.getElementById('title').innerHTML
+        var cardOverview = document.getElementById('overview-card').innerHTML
+        var objData = {
+            img: cardImg,
+            name: cardName,
+            overview: cardOverview,
+        }
+
+        console.log(objData)
+        setCardData(objData)
+        setIsOpen(true)
+    }
+
     return (
         <div className='popular'>
             <h2 className='card-title'>Les films populaires</h2>
@@ -35,7 +53,7 @@ export default function CardMovie() {
                 <MdChevronLeft className='arrow' size={260} onClick={slideLeft} />
                 <div className="card scroll" id='scrollX' >
                     {data.map((movies, key) => {
-                        return <div className="popular-card">
+                        return <div className="popular-card" onClick={getCardInfo}>
                             <img  className="card-img" src={url + movies.backdrop_path} alt={movies.title} />
                             <h3 className='popular-title'>{movies.title}</h3>
                         </div>
@@ -43,6 +61,7 @@ export default function CardMovie() {
                 </div>
                 <MdChevronRight  className='arrow' size={260} onClick={slideRight} />
             </div>
+            <Modals open={isOpen} cardData={cardData} />
         </div>
     )
 }
