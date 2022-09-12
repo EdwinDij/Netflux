@@ -5,7 +5,6 @@ import Modals from './Modals'
 
 export default function CardLastest() {
     const [data, setData] = useState([])
-    const [cardData, setCardData] = useState([])
     const [text, setText] = useState("")
     const [imgUrl, setImgUrl] = useState("")
     const [title, setTitle] = useState("")

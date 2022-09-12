@@ -5,7 +5,9 @@ import Modals from './Modals'
 
 export default function CardMovie() {
     const [data, setData] = useState([])
-    const [cardData, setCardData] = useState({})
+    const [text, setText] = useState("")
+    const [imgUrl, setImgUrl] = useState("")
+    const [title, setTitle] = useState("")
     const [isOpen, setIsOpen] = useState(false)
     const url = "http://image.tmdb.org/t/p/w342"
 
@@ -31,20 +33,19 @@ export default function CardMovie() {
         slider.scrollLeft = slider.scrollLeft + 720
     }
 
-    const getCardInfo = () => {
-        var cardImg = document.getElementById('img').currentSrc
-        var cardName = document.getElementById('title').innerHTML
-        var cardOverview = document.getElementById('overview-card').innerHTML
-        var objData = {
-            img: cardImg,
-            name: cardName,
-            overview: cardOverview,
-        }
-
-        console.log(objData)
-        setCardData(objData)
+    const getCardInfo = (event) => {
+        const element = event.currentTarget.children;
+        const text = element[2].innerHTML
+        const title = element[1].innerHTML
+        const img = element[0].currentSrc
+        console.log(element)
+        console.log(text, title, img)
+        setImgUrl(img)
+        setText(text)
+        setTitle(title)
         setIsOpen(true)
-    }
+     }
+
 
     return (
         <div className='popular'>
@@ -52,16 +53,19 @@ export default function CardMovie() {
             <div className="movies-card">
                 <MdChevronLeft className='arrow' size={260} onClick={slideLeft} />
                 <div className="card scroll" id='scrollX' >
-                    {data.map((movies, key) => {
+                    {data.map((movies, index) => {
                         return <div className="popular-card" >
+                             <div id="cardTest" key={index} onClick={getCardInfo}>
                             <img  className="card-img" src={url + movies.backdrop_path} alt={movies.title} />
                             <h3 className='popular-title'>{movies.title}</h3>
+                            <p id="overview-card">{movies.overview} </p>
+                        </div>
                         </div>
                     })}
                 </div>
                 <MdChevronRight  className='arrow' size={260} onClick={slideRight} />
             </div>
-            <Modals open={isOpen} cardData={cardData} />
+            <Modals open={isOpen} title={title} img={imgUrl} textM={text}/>
         </div>
     )
 }
