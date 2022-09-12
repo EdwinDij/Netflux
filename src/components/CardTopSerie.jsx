@@ -47,6 +47,8 @@ export default function CardTopSerie() {
         setIsOpen(true)
     }
 
+    
+
     return (
         <div className='popular'>
             <h2 className='card-title'>Top Série</h2>
@@ -54,7 +56,7 @@ export default function CardTopSerie() {
                 <MdChevronLeft className='arrow' size={260} onClick={slideLeft} />
                 <div className="card scroll" id='scrollX2' >
                     {data.map((movies, key) => {
-                        return <div className="popular-card" onClick={getCardInfo}>
+                        return <div className="popular-card" >
                             <img className="card-img" id="img" src={url + movies.backdrop_path} alt={movies.title} />
                             <h3 className='popular-title' id="title" >{movies.name}</h3>
                             <p id="overview-card">{movies.overview} </p>

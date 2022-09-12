@@ -53,7 +53,7 @@ export default function CardMovie() {
                 <MdChevronLeft className='arrow' size={260} onClick={slideLeft} />
                 <div className="card scroll" id='scrollX' >
                     {data.map((movies, key) => {
-                        return <div className="popular-card" onClick={getCardInfo}>
+                        return <div className="popular-card" >
                             <img  className="card-img" src={url + movies.backdrop_path} alt={movies.title} />
                             <h3 className='popular-title'>{movies.title}</h3>
                         </div>
